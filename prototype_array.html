@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function book(title, author) {
+            this.title = title;
+            this.author = author;
+        }
+
+        let myBook = new book("Javascript", "Mohtashim");
+        book.prototype.price = null;
+        myBook.price = 100;
+
+        document.writeln(`Book Title adalah : ${myBook.title} <br>`);
+        document.writeln(`Book Author adalah : ${myBook.author} <br>`);
+        document.writeln(`Book Price adalah : ${myBook.price} <br>`);
+    </script>
+</body>
+</html>
