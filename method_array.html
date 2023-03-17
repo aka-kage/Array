@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="arr"></p>
+    <button onclick="filterArr()">Filter</button>
+    <button onclick="forEachArr()">For Each</button>
+    <button onclick="joinArr()">Join</button>
+    <button onclick="mapArr()">Map</button>
+    <button onclick="popArr()">Pop</button>
+    <button onclick="pushArr()">Push</button>
+    <button onclick="sortArr()">Sort</button>
+    <button onclick="forInArr()">For In</button>
+    <button onclick="forOfArr()">For Of</button>
+    <button onclick="reset()">Reset</button>
+    <script>
+        let arr = [4, 6, 3, 5, 7];
+        document.getElementById("arr").innerHTML = arr;
+        function reset() {
+            arr = [4, 6, 3, 5, 7];
+            document.getElementById("arr").innerHTML = arr;
+        }
+
+        // Filter membuat array baru yang diisi dengan elemen yang lulus tes yang disediakan oleh suatu fungsi
+        function filterMethod(arr) {
+            return arr >= 5;
+        }
+        function filterArr() {
+            let filterArr = arr.filter(filterMethod);
+            arr = filterArr;
+            document.getElementById("arr").innerHTML = arr;
+        }
+
+
+        //For Each memanggil fungsi untuk setiap elemen dalam array
+        function forEachMethod(num, index, arr) {
+            arr[index] = num *= 10;
+        }
+        function forEachArr() {
+            arr.forEach(forEachMethod);
+            document.getElementById("arr").innerHTML = arr;
+        }
+
+
+        //Join mengembalikan array sebagai string
+        function joinArr() {
+            let arrString = arr.join(" ~ ");
+            document.getElementById("arr").innerHTML = arrString;
+        }
+
+
+        //Map membuat array baru dari memanggil fungsi untuk setiap elemen array
+        function mapMethod(num) {
+            return num ** 2;
+        }
+        function mapArr() {
+            let mapArr = arr.map(mapMethod);
+            document.getElementById("arr").innerHTML = mapArr;
+        }
+
+
+        //Pop menghapus elemen terakhir dari array
+        function popArr() {
+            arr.pop();
+            document.getElementById("arr").innerHTML = arr;
+        }
+
+
+        //Push menambahkan item baru ke akhir array
+        function pushArr() {
+            arr.push(Math.max(...arr) + 1);
+            document.getElementById("arr").innerHTML = arr;
+        }
+
+        
+        //Sort mengurutkan elemen array
+        function sortArr() {
+            arr.sort(function (a, b) { return a - b });
+            document.getElementById("arr").innerHTML = arr;
+        }
+
+
+        //For In melakukan pengulangan melalui properti objek/array
+        function forInArr() {
+            for (let i in arr) {
+                arr[i] += i;
+            }
+            document.getElementById("arr").innerHTML = arr;
+        }
+
+
+        //For Of melakukan pengulangan melalui nilai array/objek yang dapat diubah
+        function forOfArr() {
+            let text = "a";
+            for (let j of arr) {
+                text += j +" a";
+            }
+            document.getElementById("arr").innerHTML = text;
+        }
+    </script>
+</body>
+</html>
